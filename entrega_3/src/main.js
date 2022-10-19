@@ -67,6 +67,12 @@ const server = app.listen(8080, () => {
     console.log('server listening')
 })
 
+
+app.get('/', (req, res) => {
+    res.send('anda a /productos si quieres ver los productos, and a /productoRandom si quieres un productos random')
+
+})
+
 app.get('/productos', (req, res) => {
     productos.getAll().then((products)=>{
         res.send({products})

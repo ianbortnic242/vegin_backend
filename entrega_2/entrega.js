@@ -52,12 +52,6 @@ class Contenedor{
         const new_data = []
         fs.promises.writeFile(this.path, JSON.stringify(new_data))
     }
-
-
-
-
-
-
 }
 
 

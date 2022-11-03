@@ -50,12 +50,12 @@ class Contenedor{
 
         const data = await this.getJson()
         const filtered_data = data.filter((product) => product.id!=id)
-        fs.promises.writeFile(this.path, JSON.stringify(filtered_data))
+        fs.promises.writeFile(this.path, JSON.stringify(filtered_data, null, '\t'))
     }
 
     async deleteAll(){
         const new_data = []
-        fs.promises.writeFile(this.path, JSON.stringify(new_data))
+        fs.promises.writeFile(this.path, JSON.stringify(new_data, null, '\t'))
     }
 }
 

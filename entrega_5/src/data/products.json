@@ -1,0 +1,92 @@
+[
+	{
+		"id": 1,
+		"title": "tofu",
+		"price": 30000,
+		"thumbnail": "ousc"
+	},
+	{
+		"title": "tempeh",
+		"price": 3000,
+		"thumbnail": "iwucb",
+		"id": 2
+	},
+	{
+		"title": "avena",
+		"price": 3000,
+		"thumbnail": "iwucb",
+		"id": 3
+	},
+	{
+		"title": "oreos",
+		"price": 3000,
+		"thumbnail": "iwucb",
+		"id": 4
+	},
+	{
+		"title": "",
+		"price": "",
+		"thumbnail": "",
+		"id": 5
+	},
+	{
+		"title": "",
+		"price": "",
+		"thumbnail": "",
+		"id": 6
+	},
+	{
+		"title": "",
+		"price": "",
+		"thumbnail": "",
+		"id": 7
+	},
+	{
+		"title": "dc",
+		"price": "sdc",
+		"thumbnail": "sd",
+		"id": 8
+	},
+	{
+		"title": "dc",
+		"price": "sdc",
+		"thumbnail": "sd",
+		"id": 9
+	},
+	{
+		"title": "dc",
+		"price": "sdc",
+		"thumbnail": "sd",
+		"id": 10
+	},
+	{
+		"title": "dc",
+		"price": "sdc",
+		"thumbnail": "sd",
+		"id": 11
+	},
+	{
+		"title": "dc",
+		"price": "sdc",
+		"thumbnail": "sd",
+		"id": 12
+	},
+	{
+		"title": "dc",
+		"price": "sdc",
+		"thumbnail": "sd",
+		"id": 13
+	},
+	{
+		"title": "dc",
+		"price": "sdc",
+		"thumbnail": "sd",
+		"id": 14
+	},
+	{
+		"title": "dc",
+		"price": "sdc",
+		"thumbnail": "sd",
+		"id": 15
+	}
+]

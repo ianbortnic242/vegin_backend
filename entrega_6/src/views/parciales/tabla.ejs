@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div class="table-responsive">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Photo Url</th>
+    </tr>
+  </thead>
+  <tbody id="tBody">
+    <% products.forEach(anItem=> { %>
+      <tr>
+        <td>
+          <%= anItem.id %>
+        </td>
+        <td>
+          <%= anItem.title %>
+        </td>
+        <td>
+          <%= anItem.price %>
+        </td>
+        <td>
+          <%= anItem.thumbnail %>
+        </td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>
+</div>
+
+</body>
+
+</html>

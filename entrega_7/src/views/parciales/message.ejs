@@ -1,0 +1,10 @@
+<div id="allMessages">
+    <% messages.forEach(message=> { %>
+        <div>
+            <p><span style="font-weight:bold"><%= message.email %> </span>  <span><%= message.time %></span></p>
+            <p><%= message.msg %></p>
+        </div>
+        <% 
+    }) 
+    %>
+</div>

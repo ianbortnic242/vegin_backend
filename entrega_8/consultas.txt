@@ -1,0 +1,175 @@
+use ecommerce // Al no existir la base de datos al hacer switch nos la Creamos
+
+// Creamos la colección "products"
+db.createCollection('products')
+
+// Creamos la colección messages
+db.createCollection('message')
+
+// Creamos un array con 10 mensajes
+let arrayMessage = [
+    {
+        email: 'ianbortnic.uchile@gmail.com',
+        msg: 'Hola maxbo',
+        time: '17:33 am'
+    },
+    {
+        email: 'maxbortnic@hotmail.com',
+        msg: 'Che iansu, que haces',
+        time: '17:34 am'
+    },
+    {
+        email: 'ianbortnic.uchile@gmail.com',
+        msg: 'nada, trabajo, tu?',
+        time: '17:35 am'
+    },
+    {
+        email: 'maxbortnic@hotmail.com',
+        msg: 'tambien',
+        time: '17:36 am'
+    },
+    {
+        email: 'ianbortnic.uchile@gmail.com',
+        msg: 'buu que fome',
+        time: '17:37 am'
+    },
+    {
+        email: 'maxbortnic@hotmail.com',
+        msg: 'Que hacemos mas tarde?',
+        time: '17:38 am'
+    },
+    {
+        email: 'ianbortnic.uchile@gmail.com',
+        msg: 'No se, podemos salir a comer',
+        time: '17:39 am'
+    },
+    {
+        email: 'maxbortnic@hotmail.com',
+        msg: 'me tinca',
+        time: '17:40 am'
+    },
+    {
+        email: 'ianbortnic.uchile@gmail.com',
+        msg: 'donde vamos?',
+        time: '17:41 am'
+    },
+    {
+        email: 'maxbortnic@hotmail.com',
+        msg: 'al mokka',
+        time: '17:42 am'
+    }
+]
+
+// Insertamos los mensajes en nuestra colección
+db.message.insertMany(arrayMessage)
+
+// Creamos una array con 10 productos
+let arrProducts = [
+    {
+        title:'tofu',
+        price: 399,
+        thumbnail:'01'
+    },
+    {
+        title:'seitan',
+        price: 439,
+        thumbnail:'02'
+    },
+    {
+        title:'levadura nutricional',
+        price: 850,
+        thumbnail:'03'
+    },
+    {
+        title:'tomates',
+        price: 1350,
+        thumbnail:'04'
+    },
+    {
+        title:'palta',
+        price: 1550,
+        thumbnail:'05'
+    },
+    {
+        title:'lechuga',
+        price: 2000,
+        thumbnail:'06'
+    },
+    {
+        title:'aceitunas',
+        price: 240,
+        thumbnail:'07'
+    },
+    {
+        title:'oreos',
+        price: 3560,
+        thumbnail:'08'
+    },
+    {
+        title:'triton',
+        price: 1620,
+        thumbnail:'09'
+    },
+    {
+        title:'avena',
+        price: 5500,
+        thumbnail:'10'
+    }
+]
+
+// Insertamos los productos en nuestra colección
+db.products.insertMany(arrProducts)
+
+// Mostramos el contenido de ambas colecciónes
+db.message.find()
+db.products.find()
+
+// Contamos la cantidad de documentos en ambas colecciones
+db.message.countDocuments()
+db.products.countDocuments()
+
+//Agregamos un producto nuevo a la coleccion 'products'
+db.products.insertOne({title:'agua mineral',price: 999, thumbnail:'11'})
+
+//Mostramos los documentos que posean un precio menor a 1000 de la colección 'products'
+db.products.find({'price': {$lt: 1000}})
+
+// Mostramos los documentos que posean un precio mayo a 1000 y menos a 3000 de la colección 'products'
+db.products.find({
+  $and:[
+    {price: {$gt: 1000}},
+    {price: {$lt: 3000}}
+    ]
+})
+
+// Mostramos los documentos que posean un precio mayos a 3000 en la colección 'products'
+db.products.find({price: {$gt: 3000}})
+
+// Ordenamos los documentos de la colección 'products' del más barato al más caro, mostramos solo el nombre del tercer documento más barato
+db.products.find({},{title:1}).sort({price:1}).skip(2).limit(1)
+
+//Agregamos el campo 'stock' en todos los documentos de la colección 'products'
+db.products.updateMany({},{$set:{stock:100}})
+
+//Actualizamos todos los documentos de la colección 'products' que posean precio mayo a 4000, se le pasa el stock a 0
+db.products.updateMany({price:{$gt:4000}},{$set: {stock:0}})
+
+//Eliminamos todos los documentos de la colección 'products' que posean precios menor a 1000
+db.products.deleteMany({price: {$lt:1000}})
+
+// Creamos un useario de solo lectura para la db ecommerce
+db.createUser(
+  {
+    user:'pepe',
+    pwd:'asd456',
+    roles:[
+      {
+        role:'read',db:'ecommerce'
+      }]
+})
+
+
+
+
+
+** PARA PODER UTILIZAR EL USUARIO REINICIAMOS EL SERVIDO CON mongod --auth y desde el cliente entramos como mongosh -u pepe -p asd456
